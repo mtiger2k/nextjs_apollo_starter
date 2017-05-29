@@ -20,7 +20,7 @@ class LayoutWrapper extends Component {
       { fixed: this.props.fixed },
       'sidebar-mini'
     );
-    //window.$('body').addClass(classnames);
+    //if (window) window.$('body').addClass(classnames);
   }
 
   render() {

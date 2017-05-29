@@ -6,15 +6,15 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 import Controlbar from './Controlbar';
 
-export default ({ children, title = 'Layout' }) => (
+export default ({ children, user, title = 'Layout' }) => (
   <div>
     <Head>
       <title>{ title }</title>
     </Head>
 
     <LayoutWrapper color="red">
-      <Header />
-      <Sidebar />
+      <Header user={user}/>
+      <Sidebar user={user}/>
 
       { children }
 

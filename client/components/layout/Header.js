@@ -12,7 +12,7 @@ import TasksMenu from '../containers/header/TasksMenu';
 import UserMenu from '../containers/header/UserMenu';
 
 
-export default function Header() {
+export default function Header({user}) {
   return (
     <HeaderWrapper>
       <Logo>
@@ -28,10 +28,7 @@ export default function Header() {
         <NotificationsMenu />
         <TasksMenu />
         <UserMenu
-          name="John Doe"
-          image="/static/images/no-avatar.png"
-          title="Mr. John Doe"
-          description="Javascript Full Stack Software Engineer"
+          loginuser={user}
           links={[
             { key: 1, text: 'Link 1' },
             { key: 2, text: 'Link 2' },

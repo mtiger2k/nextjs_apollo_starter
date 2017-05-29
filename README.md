@@ -33,13 +33,18 @@ copy node_modules/admin-lte to static folder
 ## Running Dev Server (Not ready)
 
 ```bash
-npm run start-api
+cd server
+npm install
+install mongo
+npm run dev
 ```
 
 ## Running Client
 
 ```bash
 npm run dev
+go to /register to sign up
+go to /login to login
 ```
 
 ## Explanation

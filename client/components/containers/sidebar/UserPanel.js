@@ -10,7 +10,15 @@ const user = {
   isOnline: true,
 };
 
-export default function () {
+export default function ({loginuser}) {
+  if (loginuser) {
+    //let loginuser = JSON.parse(window.localStorage.getItem('user'));
+    user.dispName = loginuser.dispName;
+    user.username = loginuser.username;
+    user.title = 'title';
+    user.joined = 'Nov. 2012';
+    user.avatar = '/static/admin-lte/dist/img/user2-160x160.jpg';
+  }
   const onlineIcon = 'fa fa-circle text-success';
   const offlineIcon = 'fa fa-circle text-danger';
   const statusIcon = user.isOnline ? onlineIcon : offlineIcon;
@@ -18,7 +26,7 @@ export default function () {
   return (
     <UserPanel
       image={user.avatar}
-      name={user.name}
+      name={user.dispName}
       statusIcon={statusIcon}
       statusText={statusText}
     />

@@ -1,3 +1,3 @@
 .next
-node_modules
-static/admin-lte
+**/node_modules
+client/static/admin-lte
