@@ -2,6 +2,16 @@ import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 import submit from './submit'
 
+const validate = values => {
+  const errors = {}
+  if (!values.username) {
+    errors.username = 'Required'
+  } else if (values.username.length > 15) {
+    errors.username = 'Must be 15 characters or less'
+  }
+  return errors
+}
+
 const renderField = ({input, label, type, meta: {touched, error}}) => (
   <div className="form-group">
     <label>{label}</label>
@@ -38,5 +48,6 @@ const RemoteSubmitForm = props => {
 
 export default reduxForm({
   form: 'remoteSubmit', // a unique identifier for this form
+  validate,
   onSubmit: submit // submit function must be passed to onSubmit
 })(RemoteSubmitForm)

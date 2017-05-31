@@ -216,7 +216,7 @@ const mainMenus = [
     title: 'Redux-Form Demo',
     items: [
       { key: 11, id: 11, title: 'Simple Form', url: '/reduxForm/simple' },
-      { key: 12, id: 12, title: 'Sync Validation', url: '/reduxForm/remoteSubmit' },
+      { key: 12, id: 12, title: 'Remote Submit', url: '/reduxForm/remoteSubmit' },
     ],
   }
 ];

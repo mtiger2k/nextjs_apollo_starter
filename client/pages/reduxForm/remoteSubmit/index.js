@@ -20,10 +20,10 @@ const showResults = values =>
   })
 
 const page = () => (
-  <Layout title="simple page">
+  <Layout title="Remote submit">
     <PageWrapper>
       <PageHeader
-        title="Simple page"
+        title="Remote Submit"
         description="description about the simple page"
       >
         <Breadcrumb
@@ -38,7 +38,7 @@ const page = () => (
         <div className="row">
           <div className="col-sm-6 col-xs-12">
             <Box
-              title="Simple Form!"
+              title="Remote Submit!"
               status="primary"
               expandable>
               <RemoteSubmitForm/>

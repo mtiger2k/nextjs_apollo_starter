@@ -19,10 +19,10 @@ const showResults = values =>
   })
 
 const page = () => (
-  <Layout title="simple page">
+  <Layout title="simple form">
     <PageWrapper>
       <PageHeader
-        title="Simple page"
+        title="Simple form"
         description="description about the simple page"
       >
         <Breadcrumb
