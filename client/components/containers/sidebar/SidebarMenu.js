@@ -1,11 +1,10 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
-
+import Router from 'next/router'
 import SidebarMenuWrapper from '../../lib/sidebar/SidebarMenuWrapper';
 import SidebarMenuHeader from '../../lib/sidebar/SidebarMenuHeader';
 import TreeMenu from '../../lib/sidebar/TreeMenu';
 
-const mainMenus = [
+/*const mainMenus = [
   {
     key: 1,
     id: 1,
@@ -207,12 +206,35 @@ const labelsMenus = [
     title: 'Information',
     showLabel: false,
   },
+];*/
+
+const mainMenus = [
+  {
+    key: 1,
+    id: 1,
+    icon: 'fa fa-dashboard',
+    title: 'Redux-Form Demo',
+    items: [
+      { key: 11, id: 11, title: 'Simple Form', url: '/reduxForm/simple' },
+      { key: 12, id: 12, title: 'Sync Validation', url: '/reduxForm/remoteSubmit' },
+    ],
+  }
+];
+
+const labelsMenus = [
+  {
+    key: 91,
+    id: 91,
+    iconColor: 'red',
+    title: 'Important',
+    showLabel: false,
+  }
 ];
 
 
 function onMenuClick(item) {
   if (item.url) {
-    browserHistory.push(item.url);
+    Router.push(item.url);
   }
 }
 
