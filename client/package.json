@@ -15,7 +15,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
     "graphql": "^0.9.1",
-    "next": "^3.0.0-beta6",
+    "next": "^2.4.1",
     "react": "^15.5.4",
     "react-apollo": "^1.0.0",
     "react-cookie": "^1.0.5",
