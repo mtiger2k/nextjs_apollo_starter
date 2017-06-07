@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "nodemon ./index.js --exec babel-node -e js"
+    "dev": "nodemon ./src/index.js --exec babel-node -e js"
   },
   "author": "",
   "license": "ISC",
