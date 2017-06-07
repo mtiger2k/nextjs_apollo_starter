@@ -1,5 +1,4 @@
 import UserModel from './models/User';
-import UserTokenModel from './models/UserToken';
 import PostModel from './models/Post';
 
 const jwt = require('jwt-simple');
@@ -24,10 +23,10 @@ export const resolvers = {
                     throw new Error("Username or password not match");
                 }
 
-                return (new UserTokenModel({
+                return Promise.resolve({
                     userId: user._id,
                     token: jwt.encode({ sub: user._id, iat: new Date().getTime(), login: user.username, }, process.env.SECRET)
-                })).save();
+                });
             });
         },
         register: (root, args) => {

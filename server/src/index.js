@@ -3,9 +3,9 @@ import graphqlHTTP from 'express-graphql';
 import { schema } from './schema';
 import cors from 'cors';
 import morgan from 'morgan';
-import UserTokenModel from './models/UserToken';
 import UserModel from './models/User';
 import mongoose from 'mongoose'
+const jwt = require('jwt-simple');
 
 require('dotenv').config();
 
@@ -47,21 +47,25 @@ const tokenParser = () => {
     }
 
     // Fetch user
-    UserTokenModel.findOne({
-        token: token
-    })
-    .then((userToken) => {
-      if (!userToken) {
+    var userObj = jwt.decode(token, process.env.SECRET);
+    if (!userObj || !userObj.login) {
+        res.setHeader('Content-Type', 'application/json');
+        return res.end(JSON.stringify({
+          errors: [{ message: 'USER_DOES_NOT_EXIST' }]
+        }));
+    }
+    UserModel.findOne({username: userObj.login}).then((user) => {
+      if (!user) {
           res.setHeader('Content-Type', 'application/json');
           return res.end(JSON.stringify({
             errors: [{ message: 'USER_DOES_NOT_EXIST' }]
           }));
-      }
-      UserModel.findById(userToken.userId).then((user) => {
+      }else {
         req.user = user;
         return next();
-      });
+      } 
     });
+
   }
 };
 
