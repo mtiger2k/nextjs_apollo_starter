@@ -7,6 +7,7 @@ import PageContent from '../components/lib/page/PageContent';
 import Box from '../components/lib/widgets/Box';
 
 import PostList from '../components/posts/List'
+import PostForm from '../components/posts/CreatePost'
 import withData from '../lib/withData'
 
 import { authenticate } from '../utils/AuthService'
@@ -47,6 +48,7 @@ class HomePage extends React.Component {
               </div>
             </div>
             <PostList />
+            <PostForm user={this.props.user} />
           </PageContent>
         </PageWrapper>
       </Layout>

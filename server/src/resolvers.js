@@ -14,7 +14,7 @@ export const resolvers = {
     },
     Mutation: {
         createPost: (root, args) => {
-            return (new PostModel(args)).save();
+            return (new PostModel({...args, createAt: new Date()})).save();
         },
         login: (root, args) => {
             return UserModel.findOne({username: args.username})

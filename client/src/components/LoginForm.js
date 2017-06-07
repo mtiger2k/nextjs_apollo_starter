@@ -77,7 +77,8 @@ const withMutation = graphql(gql`
     login(username: $username, password: $password) {
       token
       user {
-      	username
+      	id
+        username
       	dispName
       }
     }

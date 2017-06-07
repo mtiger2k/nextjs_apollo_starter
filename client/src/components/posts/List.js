@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { graphql, gql } from 'react-apollo'
 
 import Box from '../lib/widgets/Box';
+import { allPostsQuery } from '../graphql';
 
 class List extends React.Component {
 
@@ -27,7 +28,7 @@ class List extends React.Component {
             status="primary"
             expandable
             removable>
-            {this.props.data.allPosts.map(post => <div id={post.id}> {post.description} </div>)}
+            {this.props.data.allPosts && this.props.data.allPosts.map(post => <div id={post.id}> {post.user.dispName + ': ' + post.description} </div>)}
           </Box>
         </div>
       </div>
@@ -35,18 +36,7 @@ class List extends React.Component {
   }
 }
 
-const FeedQuery = gql`query allPosts {
-  allPosts(orderBy: DESC) {
-    id
-    description
-    createAt
-    user {
-      id
-      username
-    }
-  }
-}`
 
 // TODO: Should find a way to auto refresh when new data is available (subscriptions or redux?)
-const withData = graphql(FeedQuery);
+const withData = graphql(allPostsQuery);
 export default withData(List)
